@@ -92,6 +92,7 @@ cd app/cmd/kafka_consumer/
 ```env
 KAFKA_BROKERS=localhost:9092
 SCHEMA_REGISTRY_URL=http://localhost:8081
+KAFKA_TOPIC=payments-done
 DYNAMO_TABLE=payments
 AWS_ENDPOINT=http://localhost:4566
 ```
