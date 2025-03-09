@@ -26,9 +26,16 @@ const avroSchema = `{
   ]
 }`
 
+// Reader define a interface para leitura de mensagens do Kafka.
+type Reader interface {
+	FetchMessage(ctx context.Context) (kafka.Message, error)
+	CommitMessages(ctx context.Context, msgs ...kafka.Message) error
+	Close() error
+}
+
 // KafkaConsumer encapsula o leitor do Kafka, o repositório e o codec Avro.
 type KafkaConsumer struct {
-	reader *kafka.Reader
+	reader Reader
 	repo   repository.DynamoRepo
 	codec  *goavro.Codec
 }

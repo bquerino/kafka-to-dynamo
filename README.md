@@ -119,7 +119,7 @@ cd infra/local/kafka/
 ### Check DynamoDB Records
 ```bash
 aws dynamodb scan \
-  --table-name payments \
+  --table-name Payments \
   --endpoint-url http://localhost:4566 \
   --region us-east-1 \
   --profile localstack
